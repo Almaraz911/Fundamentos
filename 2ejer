@@ -1,0 +1,35 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    int cantidad;
+    float precio, total, descuento1, descuento2, totalPagar;
+    
+    cout << "Ingrese el numero de camisas: ";
+    cin >> cantidad;
+    
+    cout << "Ingrese el precio por camisa: ";
+    cin >> precio;
+    
+    total = cantidad * precio;
+    
+    if (cantidad >= 3) {
+        descuento1 = total * 0.25;
+        cout<<"tu total a pagar con descuento del 25% es: "<<descuento1<<endl;
+    } 
+    else if(cantidad<3) { 
+        descuento2 = total * 0.10;
+        cout<<"tu total a pagar con descuento del 10% es: "<<descuento2<<endl;
+    }
+    
+    return 0;
+}
