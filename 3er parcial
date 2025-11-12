@@ -1,0 +1,101 @@
+// resol 3er parcial.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//Resolver el tercer parcial usando la siguiente estructura
+
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+int sumaDigitos(int n);
+int potencia(int base, int exponente);
+void Serie(int vec[], int n, int x, int b);
+void mostrarVector(int vec[], int n);
+
+//Prototipos para cada pregunta del parcial
+
+int main() {
+	int opcion;
+	do {
+		cout << endl;
+		cout << "==Menu de opciones==" << endl;
+		cout << "1. Sumar los digitos de un numero" << endl;
+		cout << "2. Calcular potencia (base^exponente)" << endl;
+		cout << "3. Generar serie de un vector" << endl;
+		cout << "0. Salir" << endl;
+		cout << "Seleccione la opcion: ";
+		cin >> opcion;
+
+		switch (opcion) {
+		case 1: {
+			int numero;
+			cout << "Ingrese un numero entero positivo: ";
+			cin >> numero;
+			if (numero < 0)
+				cout << "Debe ingresar un numero positivo" << endl;
+			else
+				cout << "La suma de sus digitos es: " << sumaDigitos(numero) << endl;
+			break;
+		}
+
+		case 2: {
+			int base, exponente;
+			cout << "Ingrese la base: ";
+			cin >> base;
+			cout << "Ingrese el exponente: ";
+			cin >> exponente;
+			cout << base << " elevado a " << exponente << " es: " << potencia(base, exponente) << endl;
+			break;
+		}
+
+		case 3: {
+			int n, x, b, vec[MAX];
+			cout << "Ingrese el tamaño del vector (n): ";
+			cin >> n;
+			cout << "Ingrese el valkor inicial (x): ";
+			cin >> x;
+			cout << "Ingrese la diferencia o base (b): ";
+			cin >> b;
+
+			Serie(vec, n, x, b);
+			cout << "La serie generada es: ";
+			mostrarVector(vec, n);
+			break;
+		}
+
+		case 4: {
+			cout << "Saliendo del programa..." << endl;
+			break;
+		default:
+			cout << "Opcion invalida, intente nuevamente" << endl;
+		}
+	} while (opcion != 4);
+
+	return 0;
+}
+
+//1) Suma de los digitos de un numero
+
+int sumaDigitos(int n) {
+	int suma = 0;
+	while (n > 0) {
+		suma += n % 10;
+		n /= 10;
+	}
+	return suma;
+}
+
+//2) potencia sin usar pow()
+int potencia(int base, int exponente) {
+	int resultado = 1;
+	for (int i = 1; i <= exponente; i++) {
+		resultado *= base;
+	}
+	return resultado;
+}
+
+//3) funcion para generar la serie y llenar el vector 
+void mostrarVector(int vec[], int n, int x, int b) {
+	for (int i = 0; i < n, i++) {
+		vec[i] = x + i * b;
+	}
+}
